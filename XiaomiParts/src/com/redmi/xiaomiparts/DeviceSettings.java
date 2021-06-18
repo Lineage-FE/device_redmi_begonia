@@ -114,14 +114,6 @@ public class DeviceSettings extends PreferenceFragment implements
         SwitchPreference fpsInfo = (SwitchPreference) findPreference(PREF_KEY_FPS_INFO);
         fpsInfo.setChecked(prefs.getBoolean(PREF_KEY_FPS_INFO, false));
         fpsInfo.setOnPreferenceChangeListener(this);
-
-        mKcal = findPreference(PREF_DEVICE_KCAL);
-
-        mKcal.setOnPreferenceClickListener(preference -> {
-            Intent intent = new Intent(getActivity().getApplicationContext(), KCalSettingsActivity.class);
-            startActivity(intent);
-            return true;
-        });
             
         mSPECTRUM = (SecureSettingListPreference) findPreference(PREF_SPECTRUM);
         mSPECTRUM.setValue(FileUtils.getStringProp(SPECTRUM_SYSTEM_PROPERTY, "0"));
